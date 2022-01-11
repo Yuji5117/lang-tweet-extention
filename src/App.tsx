@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { isConstructorDeclaration } from "typescript";
+import axios from "axios";
 import "./App.css";
 
 function App() {
@@ -11,8 +11,6 @@ function App() {
 
   useEffect(() => {
     setTextFormat(`＜簡単表現＞\n\n【韓国語】\n・${tweetKr}\n\n【日本語】\n・${tweetJp}`);
-    
-    console.log(textFormat);
   }, [tweetKr, tweetJp]);
 
   const onHandleTweetValue = (e: any) => {
@@ -31,12 +29,11 @@ function App() {
     const endpoint = `${process.env.REACT_APP_API_ENDPOINT_URL}/twitter-manager`;
 
     try {
-      // const res = await axios.post(endpoint, textFormat);
-      // return {
-      //   statusCode: 200,
-      //   body: JSON.stringify(res),
-      // };
-      console.log(textFormat);
+      const res = await axios.post(endpoint, textFormat);
+      return {
+        statusCode: 200,
+        body: JSON.stringify(res),
+      };
     } catch (e) {
       return {
         statusCode: 400,
