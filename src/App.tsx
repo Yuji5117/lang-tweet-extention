@@ -2,15 +2,20 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+
 function App() {
   const [tweetKr, setTweetKr] = useState("");
   const [tweetJp, setTweetJp] = useState("");
   const [textFormat, setTextFormat] = useState(
-    `＜簡単表現＞\n\n【韓国語】\n・${tweetKr}\n\n【日本語】\n・${tweetJp}`
+    `＜簡単表現＞\n\n【韓国語】\n・${tweetKr}\n\n【日本語】\n・${tweetJp}\n\n#韓国語 #ハングル #korean #勉強`
   );
 
   useEffect(() => {
-    setTextFormat(`＜簡単表現＞\n\n【韓国語】\n・${tweetKr}\n\n【日本語】\n・${tweetJp}`);
+    setTextFormat(
+      `＜簡単表現＞\n\n【韓国語】\n・${tweetKr}\n\n【日本語】\n・${tweetJp}\n\n#韓国語 #ハングル #korean #勉強`
+    );
   }, [tweetKr, tweetJp]);
 
   const onHandleTweetValue = (e: any) => {
@@ -44,15 +49,35 @@ function App() {
 
   return (
     <div className="App">
-      <form action="">
-        <div className="tweet_form">
-          <div>
-            <input type="text" name="tweetKr" onChange={onHandleTweetValue} />
-          </div>
-          <div>
-            <input type="text" name="tweetJp" onChange={onHandleTweetValue} />
-          </div>
-          <button onClick={onTweet}>Tweet</button>
+      <form className="tweet_form" action="">
+        <div className="tweet_input_box">
+          <TextField
+            className="tweet_input"
+            id="standard-basic"
+            label="韓国語"
+            variant="standard"
+            name="tweetKr"
+            onChange={onHandleTweetValue}
+          />
+        </div>
+        <div className="tweet_input_box">
+          <TextField
+            className="tweet_input"
+            id="standard-basic"
+            label="日本語"
+            variant="standard"
+            name="tweetJp"
+            onChange={onHandleTweetValue}
+          />
+        </div>
+        <div className="tweet_button_box">
+          <Button
+            className="tweet_button"
+            variant="contained"
+            onClick={onTweet}
+          >
+            Tweet
+          </Button>
         </div>
       </form>
     </div>
