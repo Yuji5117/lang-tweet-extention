@@ -1,8 +1,21 @@
 .App {
   text-align: center;
   width: 400px;
-  height: 500px;
+  height: 450px;
   position: relative;
+}
+
+.header_label {
+  background-color: #1976d2;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_title {
+  color: white;
+  margin: 0;
 }
 
 .tweet_form {
@@ -28,4 +41,11 @@
 
 .tweet_button {
   width: 250px;
+}
+
+.status_bar {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
 }
