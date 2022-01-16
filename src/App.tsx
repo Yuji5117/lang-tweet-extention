@@ -27,6 +27,13 @@ function App() {
     setTextFormat(templates[tempNum]);
   }, [tweetKr, tweetJp, tempNum]);
 
+  useEffect(() => {
+    if (message === "ツイートされました！！") {
+      setTweetKr("");
+      setTweetJp("");
+    }
+  }, [message]);
+
   const onHandleTweetValue = (e: any) => {
     e.preventDefault();
     switch (e.target.name) {
@@ -40,7 +47,6 @@ function App() {
   };
 
   const handleChangeTemplate = (e: any) => {
-    console.log(textFormat);
     setTempNum(e.target.value);
   };
 
@@ -69,6 +75,7 @@ function App() {
             variant="standard"
             name="tweetKr"
             onChange={onHandleTweetValue}
+            value={tweetKr}
           />
         </div>
         <div className="tweet_input_box">
@@ -79,6 +86,7 @@ function App() {
             variant="standard"
             name="tweetJp"
             onChange={onHandleTweetValue}
+            value={tweetJp}
           />
         </div>
         <div className="tweet_button_box">
