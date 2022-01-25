@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Lang Tweet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+外国語の単語と日本語をセットでツイッター投稿ができる Chrome 拡張機能。
 
-## Available Scripts
+コード上で以下のテンプレを設定しているため、毎回テンプレを用意する必要がありません。
 
-In the project directory, you can run:
+![Screen Shot 2022-01-26 at 8 06 39](https://user-images.githubusercontent.com/50049575/151074746-bdd00cbb-1af8-440a-b466-7caa238ee565.png)
 
-### `npm start`
+## Browser settings (Without develop)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. 任意のディレクトリで以下コマンドを実行
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+git clone https://github.com/Yuji5117/lang-tweet-extention.git
 
-### `npm test`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+または、zip 形式でリポジトリをダウンロード（git 不要）
 
-### `npm run build`
+2. Chrome で chrome://extensions/ を検索窓に貼り付けて検索
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. 画面右上の「デベロッパーモード」を ON
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. 画面左上の「パッケージ化されていない拡張機能を読み込む」を押下
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. 手順 ① で取得したリポジトリの、build ディレクトリを指定する
 
-### `npm run eject`
+6. 読み込んだ拡張機能を有効にする
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+7. 画面右上から拡張機能一覧ポップアップを表示し、本拡張機能をピン留めする
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![crhome](https://user-images.githubusercontent.com/50049575/151073364-73155c62-5f0d-4cab-8343-e7d45f099966.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to use
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. 任意の外国語と日本語を入力する
 
-## Learn More
+2. 「TWEET」をクリック
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Screen Shot 2022-01-26 at 7 50 06](https://user-images.githubusercontent.com/50049575/151073660-aa167f7f-5686-4856-b78e-4053a31238b8.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Develop Setup
+
+```
+$ git clone https://github.com/Yuji5117/lang-tweet-extention.git
+$ cd lang-tweet-extention
+$ yarn
+$ yarn start
+```
