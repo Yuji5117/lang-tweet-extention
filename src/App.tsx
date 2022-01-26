@@ -10,15 +10,15 @@ import Alert from "@mui/material/Alert";
 import Header from "./components/Header";
 
 function App() {
-  const [tweetKr, setTweetKr] = useState("");
-  const [tweetJp, setTweetJp] = useState("");
-  const [textFormat, setTextFormat] = useState(
+  const [tweetKr, setTweetKr] = useState<string>("");
+  const [tweetJp, setTweetJp] = useState<string>("");
+  const [textFormat, setTextFormat] = useState<string>(
     `＜簡単表現＞\n\n【韓国語】\n・${tweetKr}\n\n【日本語】\n・${tweetJp}\n\n#韓国語 #ハングル #korean #勉強`
   );
-  const [tempNum, setTempNum] = useState(0);
-  const [message, setMessage] = useState("");
+  const [tempNum, setTempNum] = useState<number>(0);
+  const [message, setMessage] = useState<string>("");
 
-  const templates = [
+  const templates: string[] = [
     `＜簡単表現＞\n\n【韓国語】\n・${tweetKr}\n\n【日本語】\n・${tweetJp}\n\n#韓国語 #ハングル #korean #勉強`,
     `＜一言フレーズ一覧＞\n\n【日本語】\n・${tweetKr}\n\n【韓国語】\n・${tweetJp}`,
     `＜長文＞\n\n【日本語】\n・${tweetKr}\n\n【韓国語】\n・${tweetJp}`,
@@ -35,7 +35,7 @@ function App() {
     }
   }, [message]);
 
-  const onHandleTweetValue = (e: any) => {
+  const onHandleTweetValue = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     switch (e.target.name) {
       case "tweetKr":
@@ -47,11 +47,11 @@ function App() {
     }
   };
 
-  const handleChangeTemplate = (e: any) => {
-    setTempNum(e.target.value);
-  };
+  // const handleChangeTemplate = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  //   setTempNum(e.target.value);
+  // };
 
-  const onTweet = async () => {
+  const onTweet = async (): Promise<void> => {
     const endpoint = `${process.env.REACT_APP_API_ENDPOINT_URL}/twitter-manager`;
 
     try {
