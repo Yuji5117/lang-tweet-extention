@@ -4,9 +4,10 @@ import "./App.css";
 
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+// import Select from "@mui/material/Select";
+// import MenuItem from "@mui/material/MenuItem";
 import Alert from "@mui/material/Alert";
+import Header from "./components/Header";
 
 function App() {
   const [tweetKr, setTweetKr] = useState("");
@@ -14,7 +15,7 @@ function App() {
   const [textFormat, setTextFormat] = useState(
     `＜簡単表現＞\n\n【韓国語】\n・${tweetKr}\n\n【日本語】\n・${tweetJp}\n\n#韓国語 #ハングル #korean #勉強`
   );
-  const [tempNum, setTempNum] = useState(1);
+  const [tempNum, setTempNum] = useState(0);
   const [message, setMessage] = useState("");
 
   const templates = [
@@ -63,9 +64,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="header_label">
-        <h1 className="header_title">Lang Tweet</h1>
-      </div>
+      <Header />
       <form className="tweet_form" action="">
         <div className="tweet_input_box">
           <TextField
@@ -99,7 +98,7 @@ function App() {
           </Button>
         </div>
       </form>
-      <Select
+      {/* <Select
         labelId="demo-simple-select-autowidth-label"
         id="demo-simple-select-autowidth"
         value={tempNum}
@@ -107,10 +106,10 @@ function App() {
         autoWidth
         label="Format"
       >
-        <MenuItem value={1}>簡単表現</MenuItem>
+        <MenuItem value={1l}>簡単表現</MenuItem>
         <MenuItem value={2}>一言フレーズ一覧</MenuItem>
         <MenuItem value={3}>長文</MenuItem>
-      </Select>
+      </Select> */}
       {message === "ツイートされました！！" && (
         <div className="status_bar">
           <Alert severity="success">{message}</Alert>
