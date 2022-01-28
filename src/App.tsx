@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 
-import Alert from "@mui/material/Alert";
+import TweetForm from "./components/TweetForm";
 import Header from "./components/Header";
-import Form from "./components/Form";
+import Alert from "@mui/material/Alert";
 
 interface DefaultValues {
   tweetKr: string;
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      <Form defaultValues={defaultValues} setMessage={setMessage} />
+      <TweetForm defaultValues={defaultValues} setMessage={setMessage} />
       {message === "ツイートされました！！" && (
         <div className="status_bar">
           <Alert severity="success">{message}</Alert>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <HeaderContainer>
-      <Title className="header_title">Lang Tweet</Title>
+      <Title>Lang Tweet</Title>
     </HeaderContainer>
   );
 };

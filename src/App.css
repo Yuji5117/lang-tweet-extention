@@ -5,38 +5,9 @@
   position: relative;
 }
 
-.header_label {
-  background-color: #1976d2;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header_title {
-  color: white;
-  margin: 0;
-}
-
-.tweet_form {
-  width: 250px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.tweet_input_box {
-  padding-bottom: 40px;
-}
-
 .tweet_input {
   width: 250px;
   padding-bottom: 100px;
-}
-
-.tweet_button_box {
-  padding-top: 30px;
 }
 
 .tweet_button {

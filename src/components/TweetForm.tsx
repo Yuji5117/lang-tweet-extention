@@ -1,8 +1,9 @@
 import { Controller, useForm } from "react-hook-form";
+import styled from "styled-components";
 import axios from "axios";
 
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 interface IFormTypes {
   tweetKr: string;
@@ -19,7 +20,7 @@ interface TypeProps {
   setMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Form: React.FC<TypeProps> = ({ defaultValues, setMessage }) => {
+const TweetForm: React.FC<TypeProps> = ({ defaultValues, setMessage }) => {
   const { handleSubmit, control, reset } = useForm<IFormTypes>();
 
   const onTweet = async (vocabs: DefaultValues): Promise<void> => {
@@ -38,8 +39,8 @@ const Form: React.FC<TypeProps> = ({ defaultValues, setMessage }) => {
   };
 
   return (
-    <form className="tweet_form" action="">
-      <div className="tweet_input_box">
+    <Form>
+      <TextInput>
         <Controller
           name="tweetKr"
           defaultValue={defaultValues.tweetKr}
@@ -54,8 +55,8 @@ const Form: React.FC<TypeProps> = ({ defaultValues, setMessage }) => {
             />
           )}
         />
-      </div>
-      <div className="tweet_input_box">
+      </TextInput>
+      <TextInput>
         <Controller
           name="tweetJp"
           defaultValue={defaultValues.tweetJp}
@@ -70,8 +71,8 @@ const Form: React.FC<TypeProps> = ({ defaultValues, setMessage }) => {
             />
           )}
         />
-      </div>
-      <div className="tweet_button_box">
+      </TextInput>
+      <ButtonContainer>
         <Button
           className="tweet_button"
           variant="contained"
@@ -79,9 +80,25 @@ const Form: React.FC<TypeProps> = ({ defaultValues, setMessage }) => {
         >
           Tweet
         </Button>
-      </div>
-    </form>
+      </ButtonContainer>
+    </Form>
   );
 };
 
-export default Form;
+export default TweetForm;
+
+const Form = styled.form`
+  width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const TextInput = styled.div`
+  padding-bottom: 40px;
+`;
+
+const ButtonContainer = styled.div`
+  padding-top: 30px;
+`;
