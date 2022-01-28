@@ -19,8 +19,8 @@ const App: React.FC = () => {
     tweetJp: "",
   };
 
-  const onTweet = async (vocab: any): Promise<void> => {
-    const { tweetKr, tweetJp } = vocab;
+  const onTweet = async (vocabs: DefaultValues): Promise<void> => {
+    const { tweetKr, tweetJp } = vocabs;
     const endpoint = `http://localhost:3000/tweet`;
     // const endpoint = `${process.env.REACT_APP_API_ENDPOINT_URL}/twitter-manager`;
 

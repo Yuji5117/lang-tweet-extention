@@ -15,7 +15,7 @@ interface DefaultValues {
 
 interface TypeProps {
   defaultValues: DefaultValues;
-  onTweet: any;
+  onTweet: (vocabs: DefaultValues) => Promise<void>;
 }
 
 const Form: React.FC<TypeProps> = ({ defaultValues, onTweet }) => {
