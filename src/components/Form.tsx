@@ -1,4 +1,5 @@
 import { Controller, useForm } from "react-hook-form";
+import axios from "axios";
 
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -15,11 +16,26 @@ interface DefaultValues {
 
 interface TypeProps {
   defaultValues: DefaultValues;
-  onTweet: (vocabs: DefaultValues) => Promise<void>;
+  setMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Form: React.FC<TypeProps> = ({ defaultValues, onTweet }) => {
-  const { handleSubmit, control } = useForm<IFormTypes>();
+const Form: React.FC<TypeProps> = ({ defaultValues, setMessage }) => {
+  const { handleSubmit, control, reset } = useForm<IFormTypes>();
+
+  const onTweet = async (vocabs: DefaultValues): Promise<void> => {
+    const { tweetKr, tweetJp } = vocabs;
+    const endpoint = `http://localhost:3000/tweet`;
+    // const endpoint = `${process.env.REACT_APP_API_ENDPOINT_URL}/twitter-manager`;
+
+    try {
+      const res = await axios.post(endpoint, { tweetKr, tweetJp });
+      setMessage(res.data.data.body);
+      reset();
+    } catch (e) {
+      setMessage("ツイートに失敗しました");
+      reset();
+    }
+  };
 
   return (
     <form className="tweet_form" action="">

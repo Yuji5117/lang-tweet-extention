@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import "./App.css";
 
 import Alert from "@mui/material/Alert";
@@ -19,23 +18,10 @@ const App: React.FC = () => {
     tweetJp: "",
   };
 
-  const onTweet = async (vocabs: DefaultValues): Promise<void> => {
-    const { tweetKr, tweetJp } = vocabs;
-    const endpoint = `http://localhost:3000/tweet`;
-    // const endpoint = `${process.env.REACT_APP_API_ENDPOINT_URL}/twitter-manager`;
-
-    try {
-      const res = await axios.post(endpoint, { tweetKr, tweetJp });
-      setMessage(res.data.data.body);
-    } catch (e) {
-      setMessage("ツイートに失敗しました");
-    }
-  };
-
   return (
     <div className="App">
       <Header />
-      <Form defaultValues={defaultValues} onTweet={onTweet} />
+      <Form defaultValues={defaultValues} setMessage={setMessage} />
       {message === "ツイートされました！！" && (
         <div className="status_bar">
           <Alert severity="success">{message}</Alert>
